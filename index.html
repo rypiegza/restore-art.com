@@ -5,16 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atelier Piegza</title>
   <style>
+    html{scroll-behavior:smooth}
     body {
       margin: 0;
       background: #F9F7F3;
       font-family: sans-serif;
     }
     header {
-      padding: 28px 8%;
+      padding: 12px 8%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid #D6C9A8;
+      background:#F9F7F3;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
     #atelier-img {
       position: relative;
@@ -23,6 +29,7 @@
       margin: 10px auto;
       border-radius: 24px;
       overflow: hidden;
+      cursor:pointer;
     }
     #atelier-img img {
       width: 100%;
@@ -53,6 +60,7 @@
       border: 1px solid #111;
       background: #fff;
       letter-spacing: 2px;
+      cursor:pointer;
     }
     .grid {
       display: grid;
@@ -66,6 +74,16 @@
       padding: 24px;
       text-align: center;
     }
+    #contact-frame{
+      background:#F9F7F3;
+      padding-top:10px;
+    }
+    #contactIframe{
+      width:100%;
+      border:none;
+      min-height:800px;
+      display:block;
+    }
     footer {
       background: #111;
       color: #D6C9A8;
@@ -75,19 +93,23 @@
       padding: 30px 8%;
       font-size: 13px;
     }
+    @media(max-width:800px){
+      .grid, footer{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <header style="padding:12px 8%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #D6C9A8; background:#F9F7F3">
- <a href="https://devis.pro/piegza-ryszard">
-   <img src="logo.png" alt="Atelier Piegza" style="height:62px; width:auto; display:block">
- </a>
- <nav>
-   <a href="https://www.wizya.net/soclage.htm" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 8px">PRESENTATION-SOCLAGE</a> •
-   <a href="https://www.wizya.net/soclage/contact.htm" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 8px">CONTACT</a>
- </nav>
-</header>
- <div style="text-align:center; padding:30px">
+  <header>
+    <a href="https://devis.pro/piegza-ryszard">
+      <img src="logo.png" alt="Atelier Piegza" style="height:62px; width:auto; display:block">
+    </a>
+    <nav>
+      <a href="https://www.wizya.net/soclage.htm" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 8px">PRESENTATION-SOCLAGE</a> •
+      <a href="#contact-frame" style="color:#1a1a1a;text-decoration:none;margin:0 8px">CONTACT</a>
+    </nav>
+  </header>
+
+  <div style="text-align:center; padding:30px">
     <div id="atelier-img">
       <img src="avant.jpg" alt="Avant" />
       <img src="apres.jpg" id="apres" alt="Apres" />
@@ -97,7 +119,7 @@
     <button id="toggleBtn" onclick="toggle()">CLIQUEZ POUR VOIR APRES →</button>
   </div>
 
-  <div class="grid">
+  <div id="services" class="grid">
     <div class="card">
       <h3>Restauration</h3>
       <p>Conservation et restauration d'emaux, bronzes et objets en metal.</p>
@@ -110,6 +132,10 @@
       <h3>Patrimoine préservé</h3>
       <p>Préservation depuis 1998 pour collections publiques et privées.</p>
     </div>
+  </div>
+
+  <div id="contact-frame">
+    <iframe src="contact.html" id="contactIframe" scrolling="no" title="Contact"></iframe>
   </div>
 
   <footer>
@@ -144,6 +170,16 @@
       }
     }
     document.getElementById('atelier-img').onclick = toggle;
+
+    const iframe = document.getElementById('contactIframe');
+    function resizeIframe(){
+      try{
+        const h = iframe.contentDocument.body.scrollHeight;
+        iframe.style.height = (h + 20) + 'px';
+      }catch(e){}
+    }
+    iframe.onload = resizeIframe;
+    window.addEventListener('resize', resizeIframe);
   </script>
 </body>
 </html>
