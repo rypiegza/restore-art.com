@@ -1,65 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Atelier Piegza</title>
-  <style>
-    body{margin:0;background:#F9F7F3;font-family:sans-serif;color:#1a1a1a}
-    .wrap{max-width:1100px;margin:0 auto;padding:50px 8%}
-    .kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;opacity:.6}
-    h1{font-family:serif;font-weight:400;font-size:54px;margin:10px 0 12px}
-    .rule{height:1px;background:#D6C9A8;margin:22px 0 34px}
-    .main{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:start}
-    .grid-contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .card-contact{background:#fff;border:1px solid #E9E2D0;border-radius:18px;padding:22px}
-    .label{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.6}
-    .phone{display:inline-block;margin-top:12px;font-size:28px;text-decoration:none;color:#111}
-    .louvre-box{margin:0}
-    .louvre-box img{width:100%;max-width:340px;height:auto;border-radius:16px;border:1px solid #E9E2D0;display:block}
-    .louvre-box figcaption{margin-top:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.6;line-height:1.4}
-    .btn{display:inline-flex;margin-top:28px;padding:14px 28px;border-radius:40px;border:1px solid #111;background:#fff;text-decoration:none;color:#111;letter-spacing:2px;font-size:13px}
-    footer{background:#111;color:#D6C9A8;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;padding:30px 8%;font-size:13px;margin-top:60px}
-    @media(max-width:900px){.main{grid-template-columns:1fr}.grid-contact{grid-template-columns:1fr}h1{font-size:38px}footer{grid-template-columns:1fr}.louvre-box img{max-width:100%}}
-  </style>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Contact — Atelier Piegza</title>
+ <style>
+   body{margin:0;background:#F9F7F3;font-family:sans-serif;color:#1a1a1a}
+   .wrap{max-width:1100px;margin:0 auto;padding:40px 8% 20px 8%}
+   .kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;opacity:.6}
+   h1{font-family:serif;font-weight:400;font-size:48px;margin:10px 0 12px}
+   .rule{height:1px;background:#D6C9A8;margin:20px 0 28px}
+   .main{display:grid;grid-template-columns:1.1fr 0.9fr;gap:36px;align-items:start}
+   .grid-contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+   .card-contact{background:#fff;border:1px solid #E9E2D0;border-radius:18px;padding:20px}
+   .label{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.6}
+   .phone{display:inline-block;margin-top:10px;font-size:26px;text-decoration:none;color:#111}
+   .louvre-box{margin:0}
+   .louvre-box img{width:100%;max-width:320px;border-radius:16px;border:1px solid #E9E2D0;display:block}
+   .louvre-box figcaption{margin-top:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.6;line-height:1.4}
+   .btn{display:inline-flex;margin-top:22px;padding:12px 24px;border-radius:40px;border:1px solid #111;background:#fff;text-decoration:none;color:#111;letter-spacing:2px;font-size:12px}
+   @media(max-width:900px){.main{grid-template-columns:1fr}.grid-contact{grid-template-columns:1fr}h1{font-size:36px}.louvre-box img{max-width:100%}}
+ </style>
 </head>
 <body>
-
 <div class="wrap">
-  <div class="kicker">Paris · depuis 1998</div>
-  <h1>Contact</h1>
-  <p style="max-width:600px;opacity:.7;line-height:1.6">Soclage sur mesure et conservation-restauration de bronzes, émaux, objets en métal et en bois. Anna Kuczynska et Richard Piegza.</p>
-  <div class="rule"></div>
-
-  <div class="main">
-    <div>
-      <div class="grid-contact">
-        <div class="card-contact">
-          <div class="label">Anna Kuczynska</div>
-          <a href="#" class="phone" data-u="06" data-v="43" data-w="71" data-x="31" data-y="22" onclick="this.href='tel:'+this.dataset.u+this.dataset.v+this.dataset.w+this.dataset.x+this.dataset.y;return true">06 43 71 31 22</a>
-          <div style="margin-top:8px;font-size:12px;opacity:.6">Cliquez pour appeler</div>
-        </div>
-        <div class="card-contact">
-          <div class="label">Richard Piegza</div>
-          <a href="#" class="phone" data-u="06" data-v="76" data-w="49" data-x="17" data-y="37" onclick="this.href='tel:'+this.dataset.u+this.dataset.v+this.dataset.w+this.dataset.x+this.dataset.y;return true">06 76 49 17 37</a>
-          <div style="margin-top:8px;font-size:12px;opacity:.6">Cliquez pour appeler</div>
-        </div>
-      </div>
-      <a href="https://www.wizya.net/soclage.htm" class="btn">← VOIR LES RÉALISATIONS</a>
-    </div>
-
-    <figure class="louvre-box">
-      <img src="louvre.jpg" alt="Présentation-soclage-Antiquité gréco-romaine — Louvre, Paris" loading="lazy">
-      <figcaption>Présentation-soclage-Antiquité gréco-romaine — Louvre, Paris</figcaption>
-    </figure>
-  </div>
+ <div class="kicker">Paris · depuis 1998</div>
+ <h1>Contact</h1>
+ <p style="max-width:600px;opacity:.7;line-height:1.6">Soclage sur mesure et conservation-restauration de bronzes, émaux, objets en métal et en bois. Anna Kuczynska et Richard Piegza.</p>
+ <div class="rule"></div>
+ <div class="main">
+   <div>
+     <div class="grid-contact">
+       <div class="card-contact">
+         <div class="label">Anna Kuczynska</div>
+         <a href="#" class="phone" data-u="06" data-v="43" data-w="71" data-x="31" data-y="22" onclick="this.href='tel:'+this.dataset.u+this.dataset.v+this.dataset.w+this.dataset.x+this.dataset.y;return true">06 43 71 31 22</a>
+         <div style="margin-top:6px;font-size:12px;opacity:.6">Cliquez pour appeler</div>
+       </div>
+       <div class="card-contact">
+         <div class="label">Richard Piegza</div>
+         <a href="#" class="phone" data-u="06" data-v="76" data-w="49" data-x="17" data-y="37" onclick="this.href='tel:'+this.dataset.u+this.dataset.v+this.dataset.w+this.dataset.x+this.dataset.y;return true">06 76 49 17 37</a>
+         <div style="margin-top:6px;font-size:12px;opacity:.6">Cliquez pour appeler</div>
+       </div>
+     </div>
+     <a href="https://www.wizya.net/soclage.htm" class="btn">← VOIR LES RÉALISATIONS</a>
+   </div>
+   <figure class="louvre-box">
+     <img src="louvre.jpg" alt="Présentation-soclage-Antiquité gréco-romaine — Louvre, Paris" loading="lazy">
+     <figcaption>Présentation-soclage-Antiquité gréco-romaine — Louvre, Paris</figcaption>
+   </figure>
+ </div>
 </div>
-
-<footer>
-  <div><b>ATELIER PIEGZA</b><br />8 Rue Georges 92230 Gennevilliers France<br /><br />Restaurateur bronze metal objets contemporains</div>
-  <div><b>EXPOSITIONS</b><br />Musee du Louvre • Musee Dapper • Institut du Monde Arabe</div>
-  <div><b>CONTACT</b><br />piegza(at)me.com</div>
-</footer>
-
 </body>
 </html>
