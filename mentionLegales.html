@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions légales | Atelier Piegza</title>
+  <meta name="description" content="Mentions légales du site Atelier Piegza – restauration et présentation d'œuvres d'art." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f4efe7;
+      --paper: rgba(255,255,255,0.58);
+      --paper-strong: rgba(255,255,255,0.78);
+      --ink: #1f1a17;
+      --muted: #6e6257;
+      --line: rgba(78, 58, 42, 0.16);
+      --accent: #7d5a3a;
+      --accent-deep: #4e3a2a;
+      --gold: #b8915f;
+      --shadow: 0 18px 60px rgba(69, 48, 27, 0.12);
+      --radius: 24px;
+      --max: 1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(184,145,95,0.14), transparent 20%),
+        radial-gradient(circle at 90% 10%, rgba(125,90,58,0.10), transparent 24%),
+        radial-gradient(circle at 80% 80%, rgba(184,145,95,0.10), transparent 18%),
+        linear-gradient(180deg, #f8f4ee 0%, #f1eadf 45%, #efe7db 100%);
+      font-family:"Manrope", sans-serif; line-height:1.65; overflow-x:hidden;
+    }
+    body::before{
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.28;
+      background: linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        repeating-linear-gradient(90deg, transparent 0 38px, rgba(78,58,42,0.025) 38px 39px);
+      mix-blend-mode:multiply;
+    }
+    a{color:inherit;text-decoration:none}
+    img,svg{display:block;max-width:100%}
+   .wrap{ width:min(calc(100% - 2rem), var(--max)); margin-inline:auto; }
+
+    /* ===== TOPBAR POPRAWIONY ===== */
+   .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background:rgba(244,239,231,0.85);
+      border-bottom:1px solid rgba(78,58,42,0.10);
+    }
+   .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:2rem;
+      min-height:76px;
+    }
+   .brand{
+      display:flex; align-items:center; gap:.9rem;
+      flex-shrink:0; /* logo nigdy się nie kurczy */
+    }
+   .seal{
+      width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+      border:1px solid rgba(78,58,42,0.18);
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.35)),
+        linear-gradient(145deg, rgba(184,145,95,0.28), rgba(125,90,58,0.12));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 8px 24px rgba(78,58,42,.08);
+      font-family:"Cormorant Garamond", serif; font-size:1.15rem; font-weight:700;
+      letter-spacing:.06em; color:var(--accent-deep);
+    }
+   .brand-text small{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.15rem;}
+   .brand-text strong{display:block;font-family:"Cormorant Garamond", serif;font-size:1.3rem;font-weight:700;letter-spacing:.02em;}
+
+   .nav-links{
+      display:flex; align-items:center; gap:1.6rem;
+      margin-left:auto; /* dopycha na prawo */
+    }
+   .nav-links a{
+      font-size:.88rem; font-weight:500; color:var(--muted);
+      white-space:nowrap; position:relative;
+      transition:color.28s ease;
+    }
+   .nav-links a::after{
+      content:""; position:absolute; left:0; bottom:-.35rem; width:100%; height:1px;
+      background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform.28s ease;
+    }
+   .nav-links a:hover{color:var(--accent-deep);}
+   .nav-links a:hover::after{transform:scaleX(1)}
+
+    /* Hamburger - ukryty na desktop */
+   .menu-toggle{
+      display:none; margin-left:auto;
+      width:44px; height:44px; border-radius:12px;
+      border:1px solid var(--line); background:var(--paper);
+      cursor:pointer; position:relative;
+    }
+   .menu-toggle span,
+   .menu-toggle span::before,
+   .menu-toggle span::after{
+      content:""; position:absolute; left:11px; right:11px; height:2px;
+      background:var(--accent-deep); border-radius:2px; transition:all.28s ease;
+    }
+   .menu-toggle span{top:21px}
+   .menu-toggle span::before{top:-7px}
+   .menu-toggle span::after{top:7px}
+   .menu-toggle.is-open span{background:transparent}
+   .menu-toggle.is-open span::before{transform:translateY(7px) rotate(45deg)}
+   .menu-toggle.is-open span::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* reszta Twojego CSS - bez zmian */
+   .hero{padding:clamp(3rem, 7vw, 7rem) 0 2rem;}
+   .hero-grid{display:grid;grid-template-columns: 1.15fr.85fr;gap:clamp(1.5rem, 3vw, 3rem);align-items:end;}
+   .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-deep);margin-bottom:1rem;}
+   .eyebrow::before{content:"";width:36px;height:1px;background:linear-gradient(90deg, var(--gold), transparent);}
+    h1,h2,h3{margin:0;font-family:"Cormorant Garamond", serif;line-height:.94;font-weight:700;letter-spacing:-0.03em;}
+    h1{font-size:clamp(3rem, 8vw, 6.6rem);max-width:10ch;}
+   .lead{max-width:60ch;font-size:clamp(1rem, 1.4vw, 1.12rem);color:var(--muted);margin-top:1.2rem;}
+   .hero-note{align-self:stretch;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);backdrop-filter: blur(18px);box-shadow:var(--shadow);padding:1.4rem;position:relative;overflow:hidden;min-height:260px;}
+   .mini-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:.8rem;}
+   .contact-line{padding:.8rem 0;border-bottom:1px solid rgba(78,58,42,0.08);}
+   .contact-line:last-child{border-bottom:none}
+   .contact-line span{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:.18rem;}
+   .contact-line strong{font-size:1rem;font-weight:600;color:var(--ink);}
+    main{padding:1rem 0 5rem;}
+   .legal-layout{display:grid;grid-template-columns: 280px 1fr;gap:clamp(1.25rem, 3vw, 2.5rem);align-items:start;}
+   .side{position:sticky;top:96px;}
+   .side-box{border:1px solid var(--line);border-radius:22px;background:var(--paper);backdrop-filter: blur(16px);padding:1rem;box-shadow:var(--shadow);}
+   .side-box h3{font-size:1.5rem;margin-bottom:1rem;}
+   .toc{display:flex;flex-direction:column;gap:.35rem;}
+   .toc a{padding:.72rem.8rem;border-radius:14px;color:var(--muted);transition:background.25s ease, color.25s ease, transform.25s ease;font-size:.95rem;}
+   .toc a:hover,.toc a.active{background:rgba(125,90,58,0.08);color:var(--accent-deep);transform:translateX(4px);}
+   .content{display:grid;gap:1rem;}
+   .section{border:1px solid var(--line);border-radius:28px;background:var(--paper-strong);backdrop-filter: blur(18px);box-shadow:var(--shadow);padding:clamp(1.2rem, 3vw, 2rem);position:relative;overflow:hidden;}
+   .section h2{font-size:clamp(2rem, 4vw, 3rem);margin-bottom:1rem;}
+   .section p{margin:.4rem 0 0;color:#342b25;}
+   .meta-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:.9rem 1.2rem;margin-top:1.1rem;}
+   .meta-item{padding:.95rem 0;border-bottom:1px solid rgba(78,58,42,0.08);}
+   .meta-item span{display:block;font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:.24rem;}
+   .meta-item strong{display:block;font-size:1rem;line-height:1.45;font-weight:600;}
+   .bullet-list{margin:1rem 0 0;padding-left:1.1rem;color:#3e332c;}
+   .bullet-list li{margin:.55rem 0}
+   .footer{padding:1.2rem 0 2.5rem;color:var(--muted);font-size:.93rem;}
+   .footer-box{display:flex;justify-content:space-between;gap:1rem;padding-top:1rem;border-top:1px solid rgba(78,58,42,0.12);flex-wrap:wrap;}
+   .reveal{opacity:0;transform:translateY(28px);}.reveal.visible{animation:rise.8s cubic-bezier(.2,.7,.2,1) forwards;}
+    @keyframes rise{from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)}}
+   .btn-top{position:fixed;right:1rem;bottom:1rem;width:52px;height:52px;border:none;border-radius:50%;background:linear-gradient(135deg, var(--accent-deep), var(--accent));color:#fff;cursor:pointer;box-shadow:0 16px 35px rgba(78,58,42,.22);opacity:0;transform:translateY(10px) scale(.95);pointer-events:none;transition:all.28s ease;font-size:1.1rem;}
+   .btn-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+
+    /* ===== RESPONSYWNOŚĆ POPRAWIONA ===== */
+    @media (max-width: 1150px){
+     .nav-links{gap:1rem}
+     .nav-links a{font-size:.82rem}
+    }
+    @media (max-width: 1024px){
+     .menu-toggle{display:block}
+     .nav-links{
+        position:absolute; top:100%; left:0; right:0;
+        flex-direction:column; align-items:stretch;
+        background:rgba(244,239,231,0.96);
+        backdrop-filter:blur(18px);
+        border-bottom:1px solid var(--line);
+        padding:1rem;
+        gap:.2rem;
+        transform:translateY(-10px);
+        opacity:0; pointer-events:none;
+        transition:all.3s ease;
+      }
+     .nav-links.is-open{
+        transform:translateY(0); opacity:1; pointer-events:auto;
+      }
+     .nav-links a{padding:.9rem 1rem;border-radius:12px}
+     .nav-links a:hover{background:rgba(125,90,58,0.08)}
+     .nav-links a::after{display:none}
+     .topbar.wrap{position:relative}
+    }
+    @media (max-width: 980px){
+     .hero-grid,.legal-layout,.meta-grid{grid-template-columns:1fr;}
+     .side{position:relative;top:auto;}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="Atelier Piegza">
+        <div class="seal" aria-hidden="true">AP</div>
+        <div class="brand-text">
+          <small>Atelier d’art</small>
+          <strong>Atelier Piegza</strong>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navigation du site">
+        <a href="#identification">1. Identification</a>
+        <a href="#publication">2. Directeur</a>
+        <a href="#hebergement">3. Hébergeur</a>
+        <a href="#propriete">4. Propriété</a>
+        <a href="#donnees">5. Données</a>
+        <a href="#vente">6. Vente</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero wrap" id="top">
+    <div class="hero-grid">
+      <div class="reveal visible">
+        <div class="eyebrow">Mentions légales</div>
+        <h1>Informations légales du site internet</h1>
+        <p class="lead">Voici le contenu complet des mentions légales pour votre site internet en France.</p>
+      </div>
+      <aside class="hero-note reveal visible" aria-label="Informations principales">
+        <div class="mini-label">Informations de l’atelier</div>
+        <div class="contact-line"><span>Entité</span><strong>Ryszard Piegza – EI Restauration et Présentation d’Oeuvres d’Art</strong></div>
+        <div class="contact-line"><span>Adresse</span><strong>8, rue Georges, 92230 Gennevilliers</strong></div>
+        <div class="contact-line"><span>Contact</span><strong>piegza@me.com · +33 06 76 49 17 37</strong></div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="legal-layout">
+      <aside class="side">
+        <div class="side-box reveal">
+          <h3>Sommaire</h3>
+          <nav class="toc">
+            <a href="#identification">1. Identification de l’éditeur</a>
+            <a href="#publication">2. Directeur de la publication</a>
+            <a href="#hebergement">3. Hébergeur</a>
+            <a href="#propriete">4. Propriété intellectuelle</a>
+            <a href="#donnees">5. Données personnelles</a>
+            <a href="#vente">6. Conditions générales de vente</a>
+          </nav>
+        </div>
+      </aside>
+      <div class="content">
+        <section class="section reveal" id="identification"><h2>1. Identification de l’éditeur du site</h2>
+          <div class="meta-grid">
+            <div class="meta-item"><span>Nom</span><strong>Ryszard Piegza</strong></div>
+            <div class="meta-item"><span>Activité</span><strong>EI Restauration et Présentation d’Oeuvres d’Art – Atelier Piegza</strong></div>
+            <div class="meta-item"><span>Adresse</span><strong>8, rue Georges, 92230 Gennevilliers</strong></div>
+            <div class="meta-item"><span>SIRET</span><strong>330 671 926 00054</strong></div>
+            <div class="meta-item"><span>Code APE</span><strong>3299Z (9003A)</strong></div>
+            <div class="meta-item"><span>Répertoire</span><strong>330 671 926 RM 75</strong></div>
+            <div class="meta-item"><span>E-mail</span><strong><a href="mailto:piegza@me.com">piegza@me.com</a></strong></div>
+            <div class="meta-item"><span>Téléphone</span><strong><a href="tel:+330676491737">+33 06 76 49 17 37</a></strong></div>
+          </div>
+        </section>
+        <section class="section reveal" id="publication"><h2>2. Directeur de la publication</h2><p>Le directeur de la publication du présent site est <strong>M. Ryszard Piegza</strong>, en qualité de responsable de l’entreprise individuelle <strong>Atelier Piegza</strong>.</p></section>
+        <section class="section reveal" id="hebergement"><h2>3. Hébergeur du site</h2><p>Le site est hébergé par : <strong>GitHub, Inc.</strong></p><ul class="bullet-list"><li>Nom de l’hébergeur : GitHub, Inc.</li><li>Adresse : 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</li><li>Téléphone : +1 415-448-0400</li></ul></section>
+        <section class="section reveal" id="propriete"><h2>4. Propriété intellectuelle</h2><p>L’ensemble des éléments présents sur ce site, notamment les textes, photographies, visuels, documents, logos, éléments graphiques, ainsi que leur mise en forme, sont protégés par les dispositions relatives au droit de la propriété intellectuelle et demeurent, sauf mention contraire, la propriété exclusive de <strong>Ryszard Piegza / Atelier Piegza</strong>.</p></section>
+        <section class="section reveal" id="donnees"><h2>5. Données personnelles</h2><p>Conformément au RGPD, les informations éventuellement collectées via le site sont utilisées uniquement dans le cadre de la relation avec les visiteurs, clients ou prospects.</p><p>Vous disposez d’un droit d’accès, de rectification, de suppression, de limitation et d’opposition. Contact : <strong><a href="mailto:piegza@me.com">piegza@me.com</a></strong>.</p></section>
+        <section class="section reveal" id="vente"><h2>6. Conditions générales de vente</h2><p>Les conditions générales de vente ou de prestation peuvent être communiquées sur demande.</p></section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer wrap"><div class="footer-box"><div>Atelier Piegza — Mentions légales</div></div></footer>
+
+  <button class="btn-top" aria-label="Retour en haut">↑</button>
+
+  <script>
+    // Menu mobile
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('is-open'); toggle.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false');
+    }));
+
+    // Reveal + active link + top btn
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach(el => { if (!el.classList.contains('visible')) observer.observe(el); });
+
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+    const setActiveLink = () => {
+      let current = '';
+      sections.forEach(section => { if (section.getBoundingClientRect().top <= 140) current = section.id; });
+      tocLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === '#' + current); });
+    };
+    window.addEventListener('scroll', setActiveLink); window.addEventListener('load', setActiveLink);
+
+    const topBtn = document.querySelector('.btn-top');
+    window.addEventListener('scroll', () => { topBtn.classList.toggle('show', window.scrollY > 500); });
+    topBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  </script>
+</body>
+</html>
