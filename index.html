@@ -1,65 +1,134 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atelier Piegza</title>
-  <style>
-    html{scroll-behavior:smooth}
-    body{margin:0;background:#F9F7F3;font-family:sans-serif}
-    header{padding:12px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #D6C9A8;background:#F9F7F3;position:sticky;top:0;z-index:10}
-    #atelier-img{position:relative;width:100%;max-width:400px;margin:10px auto;border-radius:24px;overflow:hidden;cursor:pointer}
-    #atelier-img img{width:100%;max-height:68vh;object-fit:contain;display:block}
-    #apres{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;opacity:0;filter:blur(12px);transition:opacity 1.2s,filter 1.2s}
-    #apres.visible{opacity:1;filter:blur(0)}
-    #toggleBtn{margin:20px auto;display:block;padding:14px 34px;border-radius:40px;border:1px solid #111;background:#fff;letter-spacing:2px;cursor:pointer}
-    .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:40px 8%;background:#F1EEE8}
-    .card{background:#fff;padding:24px;text-align:center}
-    .frame-block{background:#F9F7F3}
-    .frame-block iframe{width:100%;border:none;display:block}
-    footer{background:#111;color:#D6C9A8;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;padding:30px 8%;font-size:13px}
-    @media(max-width:800px){.grid,footer{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atelier Piegza</title>
+<style>
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F9F7F3;font-family:sans-serif}
+  header{padding:12px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #D6C9A8;background:#F9F7F3;position:sticky;top:0;z-index:10}
+  /* Conteneur pour 2 images côte à côte */
+  .avant-apres-wrap{
+    display:flex;
+    gap:24px;
+    justify-content:center;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    padding:30px 8% 10px;
+  }
+  .avant-apres-item{
+    flex:1 1 320px;
+    max-width:400px;
+    text-align:center;
+  }
+  .avant-apres-item h3{
+    font-family:serif;font-weight:400;margin:0 0 12px;
+  }
+  .avant-apres-item p{
+    font-size:13px;opacity:.7;margin:10px 0 0;
+  }
+  .atelier-img{position:relative;width:100%;max-width:400px;margin:0 auto;border-radius:24px;overflow:hidden;cursor:pointer;background:#fff}
+  .atelier-img img{width:100%;height:420px;object-fit:cover;display:block}
+  .atelier-img .apres{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;filter:blur(12px);transition:opacity 1.2s,filter 1.2s;pointer-events:none}
+  .atelier-img .apres.visible{opacity:1;filter:blur(0)}
+  .badge{position:absolute;bottom:12px;background:#fff;padding:4px 10px;border-radius:20px;font-size:12px;pointer-events:none}
+  .badge.left{left:12px}
+  .badge.right{right:12px}
+  .toggleBtn{margin:16px auto 0;display:block;padding:14px 28px;border-radius:40px;border:1px solid #111;background:#fff;letter-spacing:2px;cursor:pointer}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:40px 8%;background:#F1EEE8}
+  .card{background:#fff;padding:24px;text-align:center}
+  .frame-block{background:#F9F7F3}
+  .frame-block iframe{width:100%;border:none;display:block}
+  footer{background:#111;color:#D6C9A8;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;padding:30px 8%;font-size:13px}
+  @media(max-width:800px){.grid,footer{grid-template-columns:1fr}.atelier-img img{height:360px}}
+</style>
 </head>
 <body>
-  <header>
-    <a href="https://devis.pro/piegza-ryszard"><img src="logo.png" alt="Atelier Piegza" style="height:62px;width:auto;display:block"></a>
-    <nav>
-      <a href="https://www.wizya.net/soclage.htm" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 6px">PRESENTATION-SOCLAGE</a> •
-      <a href="https://gallery-atelier-piegza.lovable.app/" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 6px">GALERIE</a> •
-      <a href="#contact-frame" style="color:#1a1a1a;text-decoration:none;margin:0 6px">CONTACT</a>
-    </nav>
-  </header>
-  <div style="text-align:center;padding:30px">
-    <div id="atelier-img"><img src="avant.jpg" alt="Avant" /><img src="apres.jpg" id="apres" alt="Apres" />
-    <span style="position:absolute;bottom:12px;left:12px;background:#fff;padding:4px 10px;border-radius:20px;font-size:12px">AVANT</span>
-    <span style="position:absolute;bottom:12px;right:12px;background:#fff;padding:4px 10px;border-radius:20px;font-size:12px">APRES</span></div>
-    <button id="toggleBtn" onclick="toggle()">CLIQUEZ POUR VOIR APRES →</button>
-  </div>
-  <div id="services" class="grid">
-    <div class="card"><h3>Restauration</h3><p>Conservation et restauration d'emaux, bronzes et objets en metal.</p></div>
-    <div class="card"><h3>Présentation des objets d'art / Soclage sur mesure</h3><p>Création de socles personnalisés, présentation muséale.</p></div>
-    <div class="card"><h3>Patrimoine préservé</h3><p>Préservation depuis 1998 pour collections publiques et privées.</p></div>
-  </div>
+<header>
+  <a href="https://devis.pro/piegza-ryszard"><img src="logo.png" alt="Atelier Piegza" style="height:62px;width:auto;display:block"></a>
+  <nav>
+    <a href="https://www.wizya.net/soclage.htm" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 6px">PRESENTATION-SOCLAGE</a> •
+    <a href="https://gallery-atelier-piegza.lovable.app/" target="_blank" style="color:#1a1a1a;text-decoration:none;margin:0 6px">GALERIE</a> •
+    <a href="#contact-frame" style="color:#1a1a1a;text-decoration:none;margin:0 6px">CONTACT</a>
+  </nav>
+</header>
 
-  <div style="text-align:center;padding:30px 8%;background:#F1EEE8">
-    <h2 style="font-family:serif;font-weight:400">Galerie des expositions</h2>
-    <p style="opacity:.7">Saumur 2006, Nantes 2007, Institut du Monde Arabe 2007, Louvre</p>
-    <a href="https://gallery-atelier-piegza.lovable.app//" target="_blank" style="display:inline-block;margin-top:12px;padding:14px 32px;border-radius:40px;border:1px solid #111;background:#fff;text-decoration:none;color:#111;letter-spacing:2px">VOIR LA GALERIE →</a>
+<!-- DEUX IMAGES CÔTE À CÔTE -->
+<div class="avant-apres-wrap">
+
+  <!-- 1. ÉMAIL -->
+  <div class="avant-apres-item">
+    <h3>Émail - Avant / Après</h3>
+    <div class="atelier-img" data-compare>
+      <img src="avant.jpg" alt="Avant - Émail" />
+      <img src="apres.jpg" class="apres" alt="Après - Émail" />
+      <span class="badge left">AVANT</span>
+      <span class="badge right">APRÈS</span>
+    </div>
+    <button class="toggleBtn" data-toggle data-label-avant="CLIQUEZ POUR VOIR APRÈS →" data-label-apres="← VOIR AVANT">CLIQUEZ POUR VOIR APRÈS →</button>
   </div>
 
-  <div id="contact-frame" class="frame-block"><iframe src="contact.html" id="contactIframe" scrolling="no" style="min-height:460px"></iframe></div>
+  <!-- 2. PATINE VERTE -->
+  <div class="avant-apres-item">
+    <h3>Bronze - Nettoyage de la patine verte</h3>
+    <div class="atelier-img" data-compare>
+      
+      <img src="patine-avant.jpg" alt="Patine verte" />
+      <img src="patine-apres.jpg" class="apres" alt="Nettoyé" />
+      <span class="badge left">PATINE</span>
+      <span class="badge right">NETTOYÉ</span>
+    </div>
+    <button class="toggleBtn" data-toggle data-label-avant="CLIQUEZ POUR VOIR NETTOYÉ →" data-label-apres="← VOIR PATINE">CLIQUEZ POUR VOIR NETTOYÉ →</button>
+    <p>Bronze - Nettoyage de la patine verte</p>
+  </div>
 
-  <footer>
-    <div><b>ATELIER PIEGZA</b><br>8 Rue Georges 92230 Gennevilliers France<br><br>Restaurateur bronze metal objets contemporains</div>
-    <div><b>EXPOSITIONS</b><br>Musee du Louvre • Musee Dapper • Institut du Monde Arabe</div>
-    <div><b>CONTACT</b><br>piegza(at)me.com</div><a href="mentionLegales.html" style="color:#ffffff !important; text-decoration:underline; text-underline-offset:4px; opacity:0.9;">
-  Mentions légales
-</a>
-  </footer>
+</div>
+
+<div id="services" class="grid">
+  <div class="card"><h3>Restauration</h3><p>Conservation et restauration d'émaux, bronzes et objets en métal.</p></div>
+  <div class="card"><h3>Présentation des objets d'art / Soclage sur mesure</h3><p>Création de socles personnalisés, présentation muséale.</p></div>
+  <div class="card"><h3>Patrimoine préservé</h3><p>Préservation depuis 1998 pour collections publiques et privées.</p></div>
+</div>
+
+<div style="text-align:center;padding:30px 8%;background:#F1EEE8">
+  <h2 style="font-family:serif;font-weight:400">Galerie des expositions</h2>
+  <p style="opacity:.7">Saumur 2006, Nantes 2007, Institut du Monde Arabe 2007, Louvre</p>
+  <a href="https://gallery-atelier-piegza.lovable.app/" target="_blank" style="display:inline-block;margin-top:12px;padding:14px 32px;border-radius:40px;border:1px solid #111;background:#fff;text-decoration:none;color:#111;letter-spacing:2px">VOIR LA GALERIE →</a>
+</div>
+
+<div id="contact-frame" class="frame-block"><iframe src="contact.html" id="contactIframe" scrolling="no" style="min-height:460px"></iframe></div>
+
+<footer>
+  <div><b>ATELIER PIEGZA</b><br>8 Rue Georges 92230 Gennevilliers France<br><br>Restaurateur bronze métal objets contemporains</div>
+  <div><b>EXPOSITIONS</b><br>Musée du Louvre • Musée Dapper • Institut du Monde Arabe</div>
+  <div><b>CONTACT</b><br>piegza(at)me.com<br><br><a href="mentionLegales.html" style="color:#ffffff !important; text-decoration:underline; text-underline-offset:4px; opacity:0.9;">Mentions légales</a></div>
+</footer>
+
 <script>
-let is=true;function toggle(){const a=document.getElementById('apres');const b=document.getElementById('toggleBtn');is=!is;if(!is){a.classList.add('visible');b.textContent='← AVANT';}else{a.classList.remove('visible');b.textContent='APRES →';}}
-document.getElementById('atelier-img').onclick=toggle;
-const cf=document.getElementById('contactIframe');function rs(){try{cf.style.height=(cf.contentDocument.body.scrollHeight+20)+'px';}catch(e){}} cf.onload=rs;window.addEventListener('resize',rs);
+  // Un seul code pour toutes les comparaisons
+  document.querySelectorAll('.avant-apres-item').forEach(function(item){
+    var imgApres = item.querySelector('.apres');
+    var btn = item.querySelector('[data-toggle]');
+    var box = item.querySelector('[data-compare]');
+    var isAvant = true;
+    function toggle(){
+      isAvant = !isAvant;
+      if(!isAvant){
+        imgApres.classList.add('visible');
+        btn.textContent = btn.dataset.labelApres || '← VOIR AVANT';
+      } else {
+        imgApres.classList.remove('visible');
+        btn.textContent = btn.dataset.labelAvant || 'CLIQUEZ POUR VOIR APRÈS →';
+      }
+    }
+    btn.addEventListener('click', toggle);
+    box.addEventListener('click', toggle);
+  });
+
+  const cf=document.getElementById('contactIframe');
+  function rs(){try{cf.style.height=(cf.contentDocument.body.scrollHeight+20)+'px';}catch(e){}}
+  cf.onload=rs;window.addEventListener('resize',rs);
 </script>
 </body>
 </html>
