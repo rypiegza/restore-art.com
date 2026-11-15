@@ -8,7 +8,7 @@
   html{scroll-behavior:smooth}
   body{margin:0;background:#F9F7F3;font-family:sans-serif}
   header{padding:12px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #D6C9A8;background:#F9F7F3;position:sticky;top:0;z-index:10}
-  /* Conteneur pour 2 images côte à côte */
+  /* Conteneur pour les images côte à côte */
   .avant-apres-wrap{
     display:flex;
     gap:24px;
@@ -54,7 +54,7 @@
   </nav>
 </header>
 
-<!-- DEUX IMAGES CÔTE À CÔTE -->
+<!-- TROIS EXEMPLES AVANT / APRÈS -->
 <div class="avant-apres-wrap">
 
   <!-- 1. ÉMAIL -->
@@ -73,7 +73,6 @@
   <div class="avant-apres-item">
     <h3>Bronze - Nettoyage de la patine verte</h3>
     <div class="atelier-img" data-compare>
-      
       <img src="patine-avant.jpg" alt="Patine verte" />
       <img src="patine-apres.jpg" class="apres" alt="Nettoyé" />
       <span class="badge left">PATINE</span>
@@ -81,6 +80,19 @@
     </div>
     <button class="toggleBtn" data-toggle data-label-avant="CLIQUEZ POUR VOIR NETTOYÉ →" data-label-apres="← VOIR PATINE">CLIQUEZ POUR VOIR NETTOYÉ →</button>
     <p>Bronze - Nettoyage de la patine verte</p>
+  </div>
+
+  <!-- 3. PORTRAIT EN BRONZE -->
+  <div class="avant-apres-item">
+    <h3>Portrait en bronze - Restauration de la patine</h3>
+    <div class="atelier-img" data-compare>
+      <img src="portrait-avant.jpg" alt="Patine endommagée" />
+      <img src="portrait-apres.jpg" class="apres" alt="Restauré" />
+      <span class="badge left">PATINE</span>
+      <span class="badge right">RESTAURÉ</span>
+    </div>
+    <button class="toggleBtn" data-toggle data-label-avant="CLIQUEZ POUR VOIR RESTAURÉ →" data-label-apres="← VOIR PATINE">CLIQUEZ POUR VOIR RESTAURÉ →</button>
+    <p>Portrait en bronze - Restauration de la patine</p>
   </div>
 
 </div>
